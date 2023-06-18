@@ -1,0 +1,19 @@
+.title {
+	line-height: 1;
+	font-size: clamp(1rem, 7vw - 1rem, 2.4rem);
+	margin-bottom: 2rem;
+}
+
+.gallery {
+	display: flex;
+	padding: 2rem 0;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+@media (width > 45rem ) {
+	.gallery {
+		flex-direction: row;
+		padding-right: clamp(1rem, 20vw - 1rem, 12rem);
+	}
+}

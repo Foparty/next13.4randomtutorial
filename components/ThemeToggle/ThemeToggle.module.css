@@ -1,0 +1,23 @@
+.toogle {
+	display: flex;
+	gap: .8rem;
+	align-items: center;
+	border: 1px solid #53c28b;
+	position: relative;
+	padding: .21rem 11px;
+	border-radius: 1rem;
+}
+
+.icon {
+	width: 100%;
+	justify-self: center;
+}
+
+.ball {
+	position: absolute;
+	width: 1.2rem;
+	height: auto;
+	aspect-ratio: 1;
+	background-color: #53c28b;
+	border-radius: 1rem;
+}

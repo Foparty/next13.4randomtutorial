@@ -1,0 +1,16 @@
+.body {
+	width: min(100% - 2rem, 75rem);
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	min-height: 100vh;
+	justify-content: space-between;
+	padding: 1rem 0;
+}
+
+@media (width > 45rem ) {
+	.body {
+
+
+	}
+}

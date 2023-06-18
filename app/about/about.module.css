@@ -1,0 +1,64 @@
+
+.imgcontainer {
+	position: relative;
+	width: 100%;
+	height: 40vh;
+	margin: 2rem 0;
+}
+
+.overtext {
+	position: absolute;
+	bottom: 1rem;
+	background-color: #53c28b;
+	padding: 1rem 1rem .4rem;
+}
+
+.title {
+	line-height: 1;
+	font-size: clamp(2rem, 7vw - 1rem, 4rem);
+}
+
+.title2 {
+	line-height: 1;
+	font-size: clamp(2rem, 7vw - 1rem, 2.4rem);
+	margin-bottom: 2rem;
+}
+
+.description {
+	font-size: clamp(.8rem, 7vw - 1rem, 1.2rem);
+}
+
+.description2 {
+	margin-bottom: 1rem;
+}
+
+.coverimage {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+@media (width > 45rem ) {
+	.content {
+		flex-direction: row;
+		gap: 3.65rem;
+	}
+
+	.content > * {
+		flex: 1;
+
+	}
+}

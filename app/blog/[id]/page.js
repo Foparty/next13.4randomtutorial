@@ -1,14 +1,23 @@
 import styles from './Post.module.css';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 const getData = async (id) => {
-	const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+	const res = await fetch(`http://localhost:3000/api/posts/${id}`);
 
 	if (!res.ok) {
-		throw new Error('Failed to fetch data');
+		return notFound();
 	}
 	return res.json();
 };
+
+export async function generateMetadata({ params }) {
+	const post = await getData(params.id);
+	return {
+		title: post.title,
+		description: post.exerpt,
+	};
+}
 
 const Post = async ({ params }) => {
 	const data = await getData(params.id);
@@ -17,51 +26,22 @@ const Post = async ({ params }) => {
 			<header className={styles.headersection}>
 				<div className={styles.textsection}>
 					<h1 className={styles.title}>{data.title}</h1>
-					<p className={styles.excerpt}>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Accusantium aliquam aliquid architecto, assumenda deserunt dolorum,
-						ea eius enim error et illum ipsum maxime non numquam, optio
-						recusandae sapiente soluta totam?
-					</p>
+					<p className={styles.excerpt}>{data.excerpt}</p>
 					<div className={styles.authorsection}>
 						<Image src={''} alt={''} width={32} height={32} />
-						<p className={styles.name}>John Doe</p>
+						<p className={styles.name}>data.auth</p>
 					</div>
 				</div>
 				<div className={styles.imgsection}>
 					<Image
 						className={styles.img}
-						src={
-							'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80'
-						}
+						src={data?.image}
 						alt={''}
 						fill={true}
 					/>
 				</div>
 			</header>
-			<main className={styles.content}>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-					adipisci debitis expedita facere, laboriosam minus nemo obcaecati
-					officia quas repellendus sequi similique tempora ut. Aliquam
-					architecto aut repellendus sunt? A doloremque fuga ipsam iusto laborum
-					libero pariatur quos saepe totam.
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-					adipisci debitis expedita facere, laboriosam minus nemo obcaecati
-					officia quas repellendus sequi similique tempora ut. Aliquam
-					architecto aut repellendus sunt? A doloremque fuga ipsam iusto laborum
-					libero pariatur quos saepe totam.
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-					adipisci debitis expedita facere, laboriosam minus nemo obcaecati
-					officia quas repellendus sequi similique tempora ut. Aliquam
-					architecto aut repellendus sunt? A doloremque fuga ipsam iusto laborum
-					libero pariatur quos saepe totam.
-				</p>
-			</main>
+			<main className={styles.content}>{data.content}</main>
 		</article>
 	);
 };

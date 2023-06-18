@@ -1,0 +1,16 @@
+.title {
+	line-height: 1;
+	font-size: clamp(1.4rem, 9vw - 1rem, 3.4rem);
+	color: #53c28b;
+	text-transform: capitalize;
+}
+
+/*.content article div:first-child {*/
+/*	order: 2;*/
+/*}*/
+
+@media (width > 45rem ) {
+	.content > article:nth-child(odd) > div:first-child {
+		order: 2;
+	}
+}

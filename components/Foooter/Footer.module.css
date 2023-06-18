@@ -1,0 +1,19 @@
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.social {
+	display: flex;
+	gap: .7rem;
+	align-items: center;
+}
+
+@media (width > 45rem) {
+	.footer {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
