@@ -11,7 +11,7 @@ const getData = async () => {
 	);
 
 	if (!res.ok) {
-		return notFound();
+		// return notFound();
 	}
 	return res.json();
 };
