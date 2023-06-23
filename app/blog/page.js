@@ -3,9 +3,12 @@ import BlogItemCard from '@/components/BlogItemCard/BlogItemCard';
 import { notFound } from 'next/navigation';
 
 const getData = async () => {
-	const res = await fetch('http://localhost:3000/api/posts', {
-		cache: 'no-store',
-	});
+	const res = await fetch(
+		'https://next13-4randomtutorial.vercel.app//api/posts',
+		{
+			cache: 'no-store',
+		}
+	);
 
 	if (!res.ok) {
 		return notFound();
