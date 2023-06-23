@@ -1,3 +1,4 @@
+'use client';
 import styles from './blog.module.css';
 import BlogItemCard from '@/components/BlogItemCard/BlogItemCard';
 import { notFound } from 'next/navigation';
