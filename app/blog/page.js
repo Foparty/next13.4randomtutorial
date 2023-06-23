@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 const getData = async () => {
 	const res = await fetch(
-		'https://next13-4randomtutorial.vercel.app//api/posts',
+		'https://next13-4randomtutorial.vercel.app/api/posts',
 		{
 			cache: 'no-store',
 		}
